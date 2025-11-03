@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Central - Your Health, Our Priority</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <button id="menu-toggle" class="menu-button" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+                <span class="menu-text">MENU</span>
+            </button>
+        </div>
+        <div class="header-center">
+            <div href="#" class="logo"><i class="fas fa-plus-square"></i> MediCare <strong>Central</strong></div>
+        </div>
+        <div class="header-right">
+            <a href="./appointment.html" class="btn-primary">Book Appointment</a>
+        </div>
+    </header>
+    <nav id="off-canvas-menu" class="off-canvas main-nav">
+        <div class="menu-header">
+            <button id="close-main-menu" class="close-button" aria-label="Close Menu"><i
+                    class="fas fa-times"></i></button>
+        </div>
+        <div id="user-info-section" class="user-info-section">
+            <img src="./assets/favicon.ico" alt="User Avatar" class="user-avatar">
+            <div class="user-info">
+                <div id="user-name" class="user-name">Guest User</div>
+                <div id="user-email" class="user-email">Please log in or sign up.</div>
+            </div>
+        </div>
+        <ul class="main-menu-list">
+            <li id="appointment-li" class="user-section-link" style="display: none;"><a href="./my_appoint.html"><i
+                        class="fas fa-clipboard-list"></i>My Appointments</a>
+            </li>
+            <li><a href="./index.html" class=""><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#specialties"><i class="fa-solid fa-stethoscope"></i>Doctors & Specs</a></li>
+            <li><a href="#services"><i class="fa-solid fa-gear"></i>Services</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i>About Us</a></li>
+            <li><a href="#contact"><i class="fas fa-headset"></i> Contact</a></li>
+        </ul>
+
+        <div id="auth-footer" class="auth-footer">
+            <a id="login-link" href="./login.html" class="auth-footer-link login-link"><i
+                    class="fas fa-sign-in-alt"></i>Login / Sign Up</a>
+            <a id="signout-link" class="auth-footer-link signout-link" style="display: none;"><i
+                    class="fas fa-sign-out-alt"></i> Sign Out</a>
+        </div>
+    </nav>
+    <div id="overlay" class="overlay"></div>
+    <section id="hero-section" class="hero-section">
+        <div class="hero-div">
+            <div class="hero-image-div">
+                <div class="hero-image"><img src="./assets/hero-image.png" alt="">
+                    <div class="hero-image-content">
+                        <h1>"Your Health is Our Lifeline."</h1>
+                        <p>Meet our expert doctors dedicated to personalized and effective treatment.</p>
+                        <a href="#specialties" class="btn-primary">Talk to a Specialist</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1>Best Caring,</h1>
+                <h1>Better Healthcare</h1>
+                <p>Experience world-class medical facilities and compassionate care 24/7.Our renowned surgeons use
+                    cutting-edge technology for minimal recovery time.</p>
+                <a href="./appointment.html" class="btn-primary hero-btn1">Book An Appointment</a>
+                <a href="#" class="btn-primary hero-btn2">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    <section id="specialties" class="doctors-specialties">
+        <div class="container">
+            <h2 class="section-title">Our Special Doctor Specialties</h2>
+            <div class="specialty-list">
+                <div class="specialty-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Neurology</h3>
+                    <p>Expert care for brain and nervous system disorders.</p>
+                </div>
+                <div class="specialty-item">
+                    <i class="fas fa-bone"></i>
+                    <h3>Orthopedics</h3>
+                    <p>Joint, bone, and muscle repair and rehabilitation.</p>
+                </div>
+                <div class="specialty-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>Cardiology</h3>
+                    <p>Leading heart specialists and diagnostic services.</p>
+                </div>
+                <div class="specialty-item">
+                    <i class="fas fa-baby"></i>
+                    <h3>Pediatrics</h3>
+                    <p>Compassionate care for children and adolescents.</p>
+                </div>
+            </div>
+            <div class="doctor-pics">
+                <h3>Meet Our Top Rated Doctors</h3>
+                <div class="doctor-grid">
+                    <div class="doctor-card">
+                        <div class="doctor-img" id="doc1"><img src="./assets/hero-image.png" alt=""></div>
+                        <div class="doctor-info">
+                            <h4>Dr. Alan Walker</h4>
+                            <p>Chief Cardiologist</p>
+                        </div>
+                    </div>
+
+                    <div class="doctor-card">
+                        <div class="doctor-img" id="doc2"><img src="./assets/doctor-1.jpg" alt=""></div>
+                        <div class="doctor-info">
+                            <h4>Dr. Tom Chen</h4>
+                            <p>Pediatric Specialist</p>
+                        </div>
+                    </div>
+
+                    <div class="doctor-card">
+                        <div class="doctor-img" id="doc3"><img src="./assets/doctor-2.png" alt=""></div>
+                        <div class="doctor-info">
+                            <h4>Dr. Ben Carter</h4>
+                            <p>Head Surgeon</p>
+                        </div>
+                    </div>
+
+                </div>
+                <a href="./appointment.html" class="btn-primary" style="margin-top: 40px;">Book an Appointment Today</a>
+            </div>
+    </section>
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Comprehensive Services</h2>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <i class="fas fa-ambulance"></i>
+                    <h3>Emergency Services</h3>
+                    <p>24/7 fully equipped emergency and trauma care unit.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-x-ray"></i>
+                    <h3>Advanced Diagnostics</h3>
+                    <p>MRI, CT scans, X-rays, and comprehensive lab testing.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-clinic-medical"></i>
+                    <h3>Inpatient & Outpatient</h3>
+                    <p>Comfortable hospital rooms and efficient outpatient treatment.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-procedures"></i>
+                    <h3>Rehabilitation</h3>
+                    <p>Physical therapy and specialized recovery programs.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Primary Care</h3>
+                    <p>Routine check-ups, preventative care, and general consultation.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-syringe"></i>
+                    <h3>Vaccination Center</h3>
+                    <p>Providing essential vaccinations for all age groups.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-user-injured"></i></div>
+                    <div class="stat-info">
+                        <span class="number">1500+</span>
+                        <span class="label">Total Patients Served</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-stethoscope"></i></div>
+                    <div class="stat-info">
+                        <span class="number">75</span>
+                        <span class="label">Expert Doctors</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-bed"></i></div>
+                    <div class="stat-info">
+                        <span class="number">200</span>
+                        <span class="label">Total Rooms</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-award"></i></div>
+                    <div class="stat-info">
+                        <span class="number">10+</span>
+                        <span class="label">Years of Service</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">MediCare Central</div>
+                <p>Committed to providing the highest standards of healthcare excellence and compassion. Your trusted
+                    partner in health.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#services">Contact</a></li>
+                    <li><a href="#specialties">Meet the Doctors</a></li>
+                </ul>
+            </div>
+
+            
+            <div class="footer-col footer-contact">
+                <h4>Contact & Location</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Health Ave, Wellness City, 90210</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@medicarecentral.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Social Links</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a>
+                    <a href="#"><i class="fab fa-twitter"></i>Twitter</a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i>Linkedin</a>
+                    <a href="#"><i class="fab fa-instagram"></i>Instagram</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2025 MediCare Central Hospital. All Rights Reserved.
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="https://kit.fontawesome.com/a7577e03bc.js" crossorigin="anonymous"></script>
+    <script src="database.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>

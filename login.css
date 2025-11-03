@@ -1,0 +1,937 @@
+/* --- 1. Global Reset and Base Styles --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    /* Primary Colors */
+    --clr-dark-teal: #01766a;
+    /* Deep background color */
+    --clr-main-teal: #02C39A;
+    /* Main button/accent color */
+    --clr-light-teal: #00A896;
+    /* Lighter accents/text */
+    --clr-white: #FFFFFF;
+    --clr-gray-text: #2F3E46;
+    --clr-light-bg: #F8F9FA;
+
+    /* New colors for enhanced design */
+    --clr-accent: #158dac;
+    --clr-success: #4caf50;
+    --clr-warning: #ff9800;
+    --clr-error: #f44336;
+    --clr-gradient-start: #0d7f74;
+    --clr-gradient-end: #095ca4;
+
+    /* Animation variables */
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.5s ease;
+    --transition-slow: 0.8s ease;
+
+    /* Shadow variables */
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 10px 20px rgba(0, 0, 0, 0.15);
+    --shadow-heavy: 0 15px 30px rgba(0, 0, 0, 0.2);
+    --shadow-glow: 0 0 20px rgba(38, 186, 164, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, #000000, #1e4144, #0d1d1f);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* --- LOGO STYLING --- */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--white);
+    display: block;
+}
+
+.logo i {
+    font-size: 1.2em;
+    margin-right: 8px;
+    color: var(--clr-light-teal);
+    position: relative;
+    top: -2px;
+    animation: rotateScale 2s infinite alternate;
+}
+
+@keyframes rotateScale {
+    from { transform: rotate(0deg) scale(1); }
+    to { transform: rotate(5deg) scale(1.05); }
+}
+
+.logo strong {
+    color: var(--clr-light-teal);
+    font-weight: 700;
+}
+/* Animated background elements */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(38, 181, 186, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(64, 255, 245, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(8, 56, 65, 0.2) 0%, transparent 50%);
+    z-index: -1;
+}
+
+/* Floating animation for background elements */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+.floating-element {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--clr-main-teal), transparent);
+    opacity: 0.1;
+    animation: float 8s ease-in-out infinite;
+    z-index: -1;
+}
+
+.floating-element:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    left: 80%;
+    animation-delay: 2s;
+}
+
+.floating-element:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 85%;
+    animation-delay: 4s;
+}
+
+.floating-element:nth-child(4) {
+    width: 120px;
+    height: 120px;
+    top: 80%;
+    left: 10%;
+    animation-delay: 6s;
+}
+
+/* Gradient animation for body background */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* --- 2. Main Container (Split Layout) --- */
+.main_box {
+    display: flex;
+    max-width: 1100px;
+    /* Standard desktop width */
+    width: 90%;
+    min-height: 650px;
+    /* Ensures a good height */
+    background: var(--clr-white);
+    border-radius: 20px;
+    overflow: hidden;
+    /* To contain the form_image and form */
+    box-shadow: var(--shadow-heavy);
+    position: relative;
+    z-index: 1;
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.main_box:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-heavy), var(--shadow-glow);
+}
+
+/* --- 3. Left Panel (Image/Info Side) --- */
+.form_image {
+    width: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, white, var(--clr-light-teal), var(--clr-dark-teal));
+}
+
+/* NEW: E-commerce themed background image - Modern shopping theme */
+.form_image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./assets/login-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    mix-blend-mode: overlay;
+    transition: transform var(--transition-slow);
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.form_image:hover::before {
+    transform: scale(1.05);
+}
+
+/* Logo styling */
+.image2 {
+    position: absolute;
+    width: 120px;
+    top: 20px;
+    left: 20px;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+    z-index: 2;
+    transition: transform var(--transition-fast);
+}
+
+.image2:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Content overlay on image */
+.image-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--clr-white);
+    padding: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.image-overlay h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    animation: fadeInUp 1s ease;
+}
+
+.image-overlay p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+/* Animation for overlay content */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    background: var(--clr-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(38, 186, 178, 0.03), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 8s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* FIXED: Improved heading spacing */
+.form h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--clr-dark-teal);
+    margin-bottom: 25px;
+    /* Increased bottom margin for more space */
+    position: relative;
+    display: inline-block;
+}
+
+.form h1::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    /* Moved further down from heading */
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, var(--clr-main-teal), var(--clr-accent));
+    border-radius: 2px;
+    transition: width var(--transition-medium);
+}
+
+.form:hover h1::after {
+    width: 100%;
+}
+
+/* FIXED: Increased space between heading animation and link */
+.form>p:first-of-type {
+    font-size: 15 px;
+    color: var(--clr-gray-text);
+    margin: 25px 0 !important;
+    /* Increased top margin to 30px for more space */
+    line-height: 1.6;
+}
+
+.register_link,
+.login_link {
+    color: var(--clr-main-teal);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.register_link::after,
+.login_link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--clr-main-teal);
+    transition: width var(--transition-fast);
+}
+
+.register_link:hover,
+.login_link:hover {
+    color: var(--clr-dark-teal);
+    transform: translateY(-2px);
+}
+
+.register_link:hover::after,
+.login_link:hover::after {
+    width: 100%;
+}
+
+/* --- 4. FIXED: Enhanced Modify Text (Error/Success Messages) --- */
+.modify_text {
+    padding: 15px 20px 15px 50px;
+    /* Added left padding for icon space */
+    margin: 15px 0 20px 0 !important;
+    /* Consistent margin */
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    visibility: visible;
+    /* Always visible when has content */
+    opacity: 1;
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transform: translateY(0);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+}
+
+.modify_text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    transition: width var(--transition-medium);
+}
+
+/* Style for error state (Red background) */
+.modify_text.error {
+    background-color: #ffebee;
+    /* Light red background */
+    color: #c62828;
+    /* Dark red text */
+    border: 1px solid #ef5350;
+    /* Red border */
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideInDown 0.5s ease;
+}
+
+.modify_text.error::before {
+    background-color: #c62828;
+    width: 5px;
+}
+
+.modify_text.error::after {
+    content: '✕';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #c62828;
+    background: rgba(198, 40, 40, 0.1);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* Style for success state (Green background) */
+.modify_text.success {
+    background-color: #e8f5e9;
+    /* Light green background */
+    color: #2e7d32;
+    /* Dark green text */
+    border: 1px solid #a5d6a7;
+    /* Green border */
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideInDown 0.5s ease;
+}
+
+.modify_text.success::before {
+    background-color: #2e7d32;
+    width: 5px;
+}
+
+.modify_text.success::after {
+    content: '✓';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2e7d32;
+    background: rgba(46, 125, 50, 0.1);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Empty state - hidden but with proper spacing */
+.modify_text:empty {
+    visibility: hidden;
+    opacity: 0;
+    padding: 0;
+    margin: 0 !important;
+    height: 0;
+    min-height: 0;
+}
+
+/* Keyframes for the shake animation */
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/* Class to apply the shake animation */
+.modify_text.shake {
+    animation: shake 0.6s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+/* @keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} */
+
+/* --- 5. FIXED: Enhanced Input Fields with Proper Icon Positioning --- */
+.input_box {
+    position: relative;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input_box label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--clr-dark-teal);
+    margin-bottom: 8px;
+    transition: color var(--transition-fast);
+    display: flex;
+    align-items: center;
+}
+
+.input_box label::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--clr-main-teal);
+    border-radius: 50%;
+    margin-right: 8px;
+    transition: all var(--transition-fast);
+}
+
+.input_box:focus-within label {
+    color: var(--clr-main-teal);
+}
+
+.input_box:focus-within label::before {
+    background: var(--clr-main-teal);
+    transform: scale(1.5);
+}
+
+.input_box input {
+    width: 100%;
+    height: 50px;
+    padding: 10px 45px 10px 15px;
+    /* Adjusted right padding for icon */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: all var(--transition-fast);
+    background: rgba(248, 249, 250, 0.5);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#username {
+    text-transform: capitalize;
+}
+
+.input_box input:focus {
+    border-color: var(--clr-main-teal);
+    box-shadow: 0 0 0 3px rgba(38, 186, 169, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    background: white;
+    transform: translateY(-2px);
+}
+
+.input_box input:valid {
+    border-color: rgba(76, 175, 80, 0.3);
+}
+
+/* FIXED: Improved Icon Styling with Better Positioning */
+.input_box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    /* Center vertically relative to input */
+    /* transform: translateY(-50%); */
+    color: var(--clr-light-teal);
+    font-size: 20px;
+    transition: all var(--transition-fast);
+    background: rgba(248, 249, 250, 0.8);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.input_box:focus-within i {
+    /* color: var(--clr-main-teal);
+    background: rgba(154, 38, 186, 0.1); */
+    transform: translateY(-100%) scale(1.1);
+}
+
+
+/* Password strength indicator */
+.password-strength {
+    height: 4px;
+    width: 0;
+    background: #ddd;
+    border-radius: 2px;
+    margin-top: 5px;
+    transition: width var(--transition-medium), background var(--transition-medium);
+}
+
+.password-strength.weak {
+    width: 33%;
+    background: var(--clr-error);
+}
+
+.password-strength.medium {
+    width: 66%;
+    background: var(--clr-warning);
+}
+
+.password-strength.strong {
+    width: 100%;
+    background: var(--clr-success);
+}
+
+/* --- 6. Enhanced Button and Separator --- */
+.btn {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(135deg, var(--clr-main-teal), var(--clr-accent));
+    border: none;
+    border-radius: 10px;
+    color: var(--clr-white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left var(--transition-slow);
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, var(--clr-dark-teal), var(--clr-main-teal));
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.social_text {
+    text-align: center;
+    margin: 25px 0 15px 0 !important;
+    /* Increased top margin */
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--clr-gray-text);
+}
+
+.social_text::before,
+.social_text::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: #eee;
+}
+
+.social_text::before {
+    left: 0;
+}
+
+.social_text::after {
+    right: 0;
+}
+
+/* --- 7. Enhanced Social Icons --- */
+.social_icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.social_icons .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--clr-light-teal);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    /* color: var(--clr-main-teal); */
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+.social_icons .icons:nth-child(1) {
+    color: #3b5998;
+    border-color: #3b5998;
+}
+.social_icons .icons:nth-child(2) {
+    color: #c62828;
+    border-color: #c62828;
+}
+
+/* .social_icons .icons::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--clr-main-teal);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform var(--transition-fast);
+    z-index: -1;
+} */
+
+.social_icons .icons:hover {
+    color: var(--clr-white);
+    border-color: var(--clr-main-teal);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.social_icons .icons:hover::before {
+    transform: scale(1);
+}
+
+.social_icons .icons:nth-child(1):hover {
+    background: #3b5998;
+    border-color: #3b5998;
+}
+
+.social_icons .icons:nth-child(2):hover {
+    background: #db4437;
+    border-color: #db4437;
+}
+
+/* --- 8. Responsiveness (Mobile View) --- */
+@media (max-width: 900px) {
+    .main_box {
+        width: 95%;
+        min-height: auto;
+        flex-direction: column;
+        /* Stack the image and form vertically */
+    }
+
+    .form_image {
+        display: none;
+        /* Hide the image side on mobile for better usability */
+    }
+
+    .form {
+        flex: none;
+        padding: 40px 30px;
+    }
+
+    .floating-element {
+        display: none;
+    }
+
+    /* Mobile adjustments for modify_text */
+    .modify_text {
+        padding: 12px 15px 12px 45px;
+        margin: 10px 0 15px 0 !important;
+        font-size: 0.9rem;
+        min-height: 55px;
+    }
+
+    .modify_text::after {
+        left: 12px;
+        font-size: 1.3rem;
+        width: 25px;
+        height: 25px;
+    }
+
+    /* Mobile adjustments for heading spacing */
+    .form h1 {
+        margin-bottom: 20px;
+    }
+
+    .form>p:first-of-type {
+        margin: 25px 0 20px 0 !important;
+    }
+
+    /* Mobile adjustments for icons */
+    .input_box i {
+        width: 28px;
+        height: 28px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Loading animation for buttons */
+.btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+
+}
+
+.btn.loading::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 2px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/* Checkmark animation for successful actions */
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #4bb71b;
+    stroke-miterlimit: 10;
+    margin: 10px auto;
+    box-shadow: inset 0px 0px 0px #4bb71b;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #4bb71b;
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+
+    0%,
+    100% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #4bb71b;
+    }
+}

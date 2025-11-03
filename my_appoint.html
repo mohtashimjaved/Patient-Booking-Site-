@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment | MediCare Central</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-left">
+            <button id="menu-toggle" class="menu-button" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+                <span class="menu-text">MENU</span>
+            </button>
+        </div>
+        <div class="header-center">
+            <div href="#" class="logo"><i class="fas fa-plus-square"></i> MediCare <strong>Central</strong></div>
+        </div>
+        <div class="header-right">
+            <a href="#" class="btn-primary">Book Appointment</a>
+        </div>
+    </header>
+    <nav id="off-canvas-menu" class="off-canvas main-nav">
+        <div class="menu-header">
+            <button id="close-main-menu" class="close-button" aria-label="Close Menu"><i
+                    class="fas fa-times"></i></button>
+        </div>
+        <div id="user-info-section" class="user-info-section">
+            <img src="./assets/favicon.ico" alt="User Avatar" class="user-avatar">
+            <div class="user-info">
+                <div id="user-name" class="user-name">Guest User</div>
+                <div id="user-email" class="user-email">Please log in or sign up.</div>
+            </div>
+        </div>
+        <ul class="main-menu-list">
+            <li id="appointment-li" class="user-section-link" style="display: none;"><a href="#orders"><i
+                        class="fas fa-clipboard-list"></i>My Appointments</a>
+            </li>
+            <li><a href="./index.html" class=""><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="./index.html#specialties"><i class="fa-solid fa-stethoscope"></i>Doctors & Specs</a></li>
+            <li><a href="./index.html#services"><i class="fa-solid fa-gear"></i>Services</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i>About Us</a></li>
+            <li><a href="#contact"><i class="fas fa-headset"></i> Contact</a></li>
+        </ul>
+
+        <div id="auth-footer" class="auth-footer">
+            <a id="login-link" href="./login.html" class="auth-footer-link login-link"><i
+                    class="fas fa-sign-in-alt"></i>Login / Sign Up</a>
+            <a id="signout-link" class="auth-footer-link signout-link" style="display: none;"><i
+                    class="fas fa-sign-out-alt"></i> Sign Out</a>
+        </div>
+    </nav>
+    <div id="overlay" class="overlay"></div>
+    <!-- <main class="main-content">
+        <section class="appointment-form-card">
+            <h1 class="card-title"><i class="fas fa-calendar-check"></i> Schedule Your Visit</h1>
+            
+            <p class="section-intro">Please select a specialist, your preferred time, and provide your contact information below. All fields are required.</p>
+
+            <div id="appointmentForm" class="advanced-form">
+                
+                <fieldset class="form-section">
+                    <legend><i class="fas fa-user-md icon-legend"></i>Specialist Selection</legend>
+                    <div class="input-group">
+                        <label for="specialty">Choose Specialty</label>
+                        <select id="specialty" name="specialty" required>
+                            <option value="placeholder" disabled selected>Select a Department</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="doctor">Select Doctor</label>
+                        <select id="doctor" name="doctor" required disabled>
+                            <option value="placeholder" disabled selected>Please Select Doctor</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend><i class="fas fa-calendar-alt icon-legend"></i> Date & Time</legend>
+
+                    <div class="input-group input-flex-row">
+                        <div class="flex-item">
+                            <label for="date">Appointment Date</label>
+                            <input type="date" id="date" name="date" required disabled>
+                        </div>
+                        <div class="flex-item">
+                            <label for="time">Preferred Time Slot</label>
+                            <select name="time" id="time" required disabled >
+                                <option value="placeholder" disabled selected>Please Select your Time Slot</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend><i class="fas fa-id-card-alt icon-legend"></i> Patient Details</legend>
+                    
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="patient-name" name="name" placeholder="Patient Name" required>
+                    </div>
+
+                    <div class="input-group input-flex-row">
+                        <div class="flex-item">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="email@example.com">
+                        </div>
+                        <div class="flex-item">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(92) 123-4567890" required>
+                        </div>
+                    </div>
+                </fieldset>
+                <button type="submit" class="submit-btn" id="confirm-appointment" disabled >
+                    <i class="fas fa-paper-plane"></i> Confirm Appointment
+                </button>
+            </div>
+            <p class="note">A staff member will contact you within 24 hours to finalize your booking.</p>
+        </section>
+    </main>
+
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-user-injured"></i></div>
+                    <div class="stat-info">
+                        <span class="number">1500+</span>
+                        <span class="label">Total Patients Served</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-stethoscope"></i></div>
+                    <div class="stat-info">
+                        <span class="number">75</span>
+                        <span class="label">Expert Doctors</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-bed"></i></div>
+                    <div class="stat-info">
+                        <span class="number">200</span>
+                        <span class="label">Total Rooms</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-award"></i></div>
+                    <div class="stat-info">
+                        <span class="number">10+</span>
+                        <span class="label">Years of Service</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <main class="main-content">
+        <section class="appointments-list-card">
+            <h1 class="card-title"><i class="fas fa-list-alt"></i> My Scheduled Appointments</h1>
+
+            <p class="section-intro"></p>
+
+            <div id="appointments-container">
+                        <div class="appoints-div">
+                            <div class="dateTime">
+                                <div class="date">02-11-2025</div>
+                                <div class="time">09:00 PM - 10:00 PM</div>
+                                <button class="deleteBtn" id="deletebtn"><i class="fa-solid fa-trash"></i>Cancel</button>
+                            </div>
+                            <div class="apptDeatailsDiv">
+                                <div class="doctor"><b>Doctor Name:</b>DR Mohtashim Javed</div>
+                                <div class="specialty"><b>Specialist:</b>Deramtology</div>
+                                <div class="patient"><b>Patient Name:</b>Mohtashim javed</div>
+                                <div class="email"><b>Email:</b>example@gmail.com</div>
+                                <div class="phone"><b>Contact No:</b>1234567489</div>
+                            </div>
+                        </div>
+                <h1>
+                    Your Appointment List Is Empty
+                </h1>
+            </div>
+
+        </section>
+    </main>
+
+    <footer id="">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">MediCare Central</div>
+                <p>Committed to providing the highest standards of healthcare excellence and compassion. Your trusted
+                    partner in health.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#services">Contact</a></li>
+                    <li><a href="#specialties">Meet the Doctors</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col footer-contact">
+                <h4>Contact & Location</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Health Ave, Wellness City, 90210</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@medicarecentral.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Social Links</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a>
+                    <a href="#"><i class="fab fa-twitter"></i>Twitter</a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i>Linkedin</a>
+                    <a href="#"><i class="fab fa-instagram"></i>Instagram</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2025 MediCare Central Hospital. All Rights Reserved.
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="https://kit.fontawesome.com/a7577e03bc.js" crossorigin="anonymous"></script>
+    <script src="database.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>
