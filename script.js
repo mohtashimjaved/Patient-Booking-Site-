@@ -78,7 +78,7 @@ const email = document.getElementById("email")
 const phone = document.getElementById("phone")
 const confirmBtn = document.getElementById("confirm-appointment")
 
-if (window.location.pathname == "/appoinment.html") {
+if (window.location.pathname == "/appointment.html") {
     const checkSessionForAppointment = async () => {
         const getSession = await session()
         if (window.location.pathname == "/appointment.html" && !getSession.session) {
