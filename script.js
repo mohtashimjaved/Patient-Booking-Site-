@@ -81,8 +81,8 @@ const confirmBtn = document.getElementById("confirm-appointment")
 if (window.location.pathname == "/appointment") {
     const checkSessionForAppointment = async () => {
         const getSession = await session()
-        if (window.location.pathname == "/appointment.html" && !getSession.session) {
-            window.location.href = "/login.html"
+        if (window.location.pathname == "/appointment" && !getSession.session) {
+            window.location.href = "/login"
         } else {
             email.value = getSession.session.user.user_metadata.email
         }
@@ -208,7 +208,7 @@ if (window.location.pathname == "/appointment") {
     }
     )
 }
-if (window.location.pathname == "/my_appoint.html") {
+if (window.location.pathname == "/my_appoint") {
     const container = document.getElementById('appointments-container');
     const checkSessionForAppointment = async () => {
         const getSession = await session()
