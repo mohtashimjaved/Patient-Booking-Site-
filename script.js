@@ -1,4 +1,4 @@
-import { supabaseclient, signoutfunc, session } from "./database.js";
+import { supabaseclient, signoutfunc, session, deletedata } from "./database.js";
 const menuToggle = document?.getElementById('menu-toggle');
 const offCanvasMenu = document?.getElementById('off-canvas-menu');
 const closeMenu = document?.getElementById('close-main-menu');
@@ -214,18 +214,58 @@ if (window.location.pathname == "/my_appoint.html") {
         const getSession = await session()
         if (window.location.pathname == "/my_appoint.html" && !getSession.session) {
             window.location.href = "/login.html"
-        } else if(getSession.session) {
+        } else if (getSession.session) {
             const apptEmail = getSession.session.user.user_metadata.email
             const apptName = getSession.session.user.user_metadata.name
             const intro = document.querySelector(".section-intro")
             intro.innerText = `Welcome back, ${apptName}. Here is your list of upcoming and past consultations.`
             const appointList = await getAppt(apptEmail)
-            if (appointList) {
-                // container.innerHTML = ""
-                appointList.map(data => {
+            if (appointList.length) {
+                container.innerHTML = ""
+                appointList.map(data => { 
                     container.innerHTML += `
-                
+                    <div class="appoints-div">
+                    <div class="dateTime">
+                        <div class="date">
+                        ${data.date}
+                        </div>
+                        <div class="time">
+                                ${data.time}
+                        </div>
+                    </div>
+                    <div class="apptDeatailsDiv">
+                        <div class="about-doctor">
+                            <div class="doctor">
+                                <b>Doctor Name:</b>
+                                ${data.doctor_name}
+                            </div>
+                            <div class="specialty">
+                                <b>Specialist:</b>
+                                ${data.specialty}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="about-patient">
+                            <div class="patient">
+                                <b>Patient Name:</b>
+                                ${data.patient_name}
+                            </div>
+                            <div class="email">
+                                <b>Email:</b>
+                                ${data.email}
+                            </div>
+                            <div class="phone">
+                                <b>Contact No:</b>
+                                ${data.phone}
+                            </div>
+                        </div>
+                    </div>
+                    <button class="deleteBtn" id="${data.id}" ><i class="fa-solid fa-trash"></i>Cancel</button>
+                </div>
                     `
+                    document.getElementById(data.id).addEventListener("click", () => {
+                        deletedata(data.id)
+                    })
                 })
             }
         }
@@ -234,9 +274,9 @@ if (window.location.pathname == "/my_appoint.html") {
     checkSessionForAppointment()
     const getAppt = async (email) => {
         const { data, error } = await supabaseclient
-        .from("appointments")
-        .select("")
-        .eq("email", email)
+            .from("appointments")
+            .select("")
+            .eq("email", email)
         if (error) {
             console.error(error);
             return error

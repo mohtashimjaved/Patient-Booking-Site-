@@ -18,3 +18,14 @@ export const signoutfunc = async () => {
     window.location.reload()
 
 }
+export const deletedata = async (id) => {
+    const { data, error } = await supabaseclient
+        .from('appointments')
+        .delete()
+        .eq('id', id)
+        .select()
+    if (error) {
+        console.log(error);
+    }
+    return data;
+}

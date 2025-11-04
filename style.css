@@ -989,13 +989,15 @@ select:focus {
 
 /* My Appointments */
 .main-content {
-    width: 1400px !important;
+    width: 1300px !important;
     margin: auto;
 
 }
 
 .appointments-list-card {
     width: 100%;
+    background-color: var(--white);
+    padding: 15px;
 }
 
 .section-intro {
@@ -1004,18 +1006,29 @@ select:focus {
 
 #appointments-container {
     width: 100%;
-    background-color: var(--dark-color);
-    padding: 10px;
+    background-color: var(--light-bg);
+    padding: 18px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    box-shadow: 0 0 5px var(--dark-color);
+    min-height: 350px;
+    
+    /* flex-direction: column; */
+}
+#appointments-container h1 {
+    align-self: center;
+    
 }
 
 .appoints-div {
-    height: 150px;
-    width: 100%;
+    height: 300px;
+    width: 30%;
     background-color: var(--light-bg);
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -1026,8 +1039,8 @@ select:focus {
 }
 
 .dateTime {
-    height: 100%;
-    width: 20%;
+    height: 25%;
+    width: 100%;
     padding: 10px;
     font-size: .8em;
     font-weight: 600;
@@ -1047,29 +1060,59 @@ select:focus {
 }
 
 .apptDeatailsDiv {
-    width: 80%;
-    padding: 20px 0;
+    height: 60%;
+    width: 100%;
+    font-size: 0.8em;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: start;
+    /* flex-wrap: wrap; */
+    /* align-items: center; */
+    justify-content: center;
+    /* gap: 10px; */
+    padding: 10px;
+    /* justify-content: start; */
+}
+hr {
+    margin-right: 10px;
 }
 
-.apptDeatailsDiv div {
-    width: 20%;
-    height: 60px;
+.about-doctor {
+    width: 50%;
 }
-
-.apptDeatailsDiv div b {
+.about-doctor div {
+    display: block;
+}
+.about-doctor div b {
+    display: block;
+}
+.about-patient {
+    width: 50%;
+}
+.about-patient div b {
     display: block;
 }
 
+
 .deleteBtn {
     padding: 10px;
-    width: 100%;
-    height: 40%;
+    width: 60%;
+    height: 15%;
+    margin-bottom: 15px;
     border: none;
-    background-color: #ff5555;
-    font-size: 1.3em;
-
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: #d43232;
+    font-size: 1em;
+    font-weight: 600;
+    /* align-items: center; */
+    color: var(--white);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+.deleteBtn:hover {
+    background-color: #a62929;
+    transform: translateY(-2px);
+}
+button:active {
+    transform: scale(0.95);
 }
