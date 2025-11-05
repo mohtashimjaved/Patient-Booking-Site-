@@ -79,10 +79,11 @@ const email = document.getElementById("email")
 const phone = document.getElementById("phone")
 const confirmBtn = document.getElementById("confirm-appointment")
 
-if (window.location.pathname == "/appoinment.html") {
+if (path == "/appointment.html" || path == "/appointment") {
     const checkSessionForAppointment = async () => {
         const getSession = await session()
-        if (window.location.pathname == "/appointment.html" && !getSession.session) {
+        if (path == "/appointment" || path == "/appointment.html" && !getSession.session) {
+            window.location.href = "/login"
             window.location.href = "/login.html"
         } else {
             patientName.value = getSession.session.user.user_metadata.name 
@@ -223,12 +224,13 @@ if (window.location.pathname == "/appoinment.html") {
     }
     )
 }
-if (window.location.pathname == "/my_appoint.html") {
+if (path == "/my_appoint" || path == "/my_appoint.html") {
     const container = document.getElementById('appointments-container');
     const checkSessionForAppointment = async () => {
         const getSession = await session()
-        if (window.location.pathname == "/my_appoint" && !getSession.session) {
+        if (path == "/my_appoint" || path == "/my_appoint.html" && !getSession.session) {
             window.location.href = "/login"
+            window.location.href = "/login.html"
         } else if (getSession.session) {
             const apptEmail = getSession.session.user.user_metadata.email
             const apptName = getSession.session.user.user_metadata.name
