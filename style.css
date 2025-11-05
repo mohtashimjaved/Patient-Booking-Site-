@@ -870,7 +870,6 @@ footer {
     color: #666;
 }
 
-/* --- Form Sections (Fieldset) --- */
 .form-section {
     border: 3px solid var(--primary-color);
     border-radius: 8px;
@@ -896,7 +895,6 @@ legend {
     color: var(--dark-color);
 }
 
-/* --- Input Styling (Increased Size) --- */
 .input-group {
     margin-bottom: 20px;
 }
@@ -954,7 +952,6 @@ select:focus {
     outline: none;
 }
 
-/* --- Button --- */
 .submit-btn {
     background-color: var(--secondary-color);
     color: white;
@@ -988,131 +985,221 @@ select:focus {
 }
 
 /* My Appointments */
-.main-content {
-    width: 1300px !important;
-    margin: auto;
+/* ================================
+   Modern Elegant Main Content Styling
+   ================================ */
 
+.main-content {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px 80px;
+  font-family: "Poppins", sans-serif;
+  color: #1e293b;
+  background: #f9fafc;
 }
 
+/* ---------- Appointments List Card ---------- */
 .appointments-list-card {
-    width: 100%;
-    background-color: var(--white);
-    padding: 15px;
+  background: linear-gradient(145deg, #ffffff, #f1f5f9);
+  border-radius: 16px;
+  padding: 36px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: all 0.35s ease;
+  animation: fadeSlideUp 0.6s ease both;
+}
+
+.appointments-list-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 0 0 6px;
+}
+
+.card-title i {
+  color: #3b82f6;
 }
 
 .section-intro {
-    text-transform: capitalize;
+  font-size: 15px;
+  color: #64748b;
+  margin-bottom: 20px;
 }
 
+/* ---------- Appointments Container ---------- */
 #appointments-container {
-    width: 100%;
-    background-color: var(--light-bg);
-    padding: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    box-shadow: 0 0 5px var(--dark-color);
-    min-height: 350px;
-    
-    /* flex-direction: column; */
+  margin-top: 24px;
 }
+
 #appointments-container h1 {
-    align-self: center;
-    
+  text-align: center;
+  color: #94a3b8;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 30px 0;
 }
 
+/* ---------- Appointment Item ---------- */
 .appoints-div {
-    height: 300px;
-    width: 30%;
-    background-color: var(--light-bg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    border-radius: 10px;
-    animation: slideInUp 0.8s ease-out;
-    /* padding: 20px; */
-    box-shadow: 0 0 10px rgb(0, 0, 0);
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  margin-bottom: 16px;
+  transition: all 0.35s ease;
 }
 
+.appoints-div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.12);
+}
+
+/* ---------- Date & Time Box ---------- */
 .dateTime {
-    height: 25%;
-    width: 100%;
-    padding: 10px;
-    font-size: .8em;
-    font-weight: 600;
-    background-color: var(--primary-color);
-    color: var(--white);
-    text-align: center;
-    align-content: center;
-    border-radius: 10px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #dbeafe, #eff6ff);
+  color: #1e40af;
+  font-weight: 600;
+  flex-shrink: 0;
+  text-align: center;
 }
 
-.date {
-    font-size: 1.8em;
+.dateTime .date {
+  font-size: 15px;
 }
 
-.time {
-    color: #2F3E46;
+.dateTime .time {
+  background: #3b82f6;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 13px;
 }
 
+/* ---------- Appointment Details ---------- */
 .apptDeatailsDiv {
-    height: 60%;
-    width: 100%;
-    font-size: 0.8em;
-    display: flex;
-    /* flex-wrap: wrap; */
-    /* align-items: center; */
-    justify-content: center;
-    /* gap: 10px; */
-    padding: 10px;
-    /* justify-content: start; */
-}
-hr {
-    margin-right: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.about-doctor {
-    width: 50%;
-}
-.about-doctor div {
-    display: block;
-}
-.about-doctor div b {
-    display: block;
-}
+.about-doctor,
 .about-patient {
-    width: 50%;
-}
-.about-patient div b {
-    display: block;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
 }
 
+.about-doctor .doctor,
+.about-doctor .specialty,
+.about-patient .patient,
+.about-patient .email,
+.about-patient .phone {
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 14px;
+  transition: background 0.3s;
+}
 
+.about-doctor > div:hover,
+.about-patient > div:hover {
+  background: #e0e7ff;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 8px 0;
+}
+
+/* ---------- Delete Button ---------- */
 .deleteBtn {
-    padding: 10px;
-    width: 60%;
-    height: 15%;
-    margin-bottom: 15px;
-    border: none;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    background-color: #d43232;
-    font-size: 1em;
-    font-weight: 600;
-    /* align-items: center; */
-    color: var(--white);
-    border-radius: 10px;
-    transition: var(--transition);
+  align-self: center;
+  background: #eff6ff;
+  border: 1px solid #c7d2fe;
+  color: #2563eb;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
 }
+
 .deleteBtn:hover {
-    background-color: #a62929;
-    transform: translateY(-2px);
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
 }
-button:active {
-    transform: scale(0.95);
+
+/* ---------- Empty State ---------- */
+#appointments-container .empty-state {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 15px;
+  padding: 28px;
 }
+
+/* ---------- Animations ---------- */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 900px) {
+  .appointments-list-card {
+    padding: 28px;
+  }
+  .appoints-div {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .dateTime {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+  .appointments-list-card {
+    padding: 22px;
+  }
+  .card-title {
+    font-size: 20px;
+  }
+}
+

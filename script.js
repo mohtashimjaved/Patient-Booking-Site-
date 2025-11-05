@@ -11,7 +11,8 @@ const appointmentLi = document.getElementById('appointment-li');
 const loginLink = document?.getElementById('login-link');
 const signoutLink = document?.getElementById('signout-link');
 
-let isLoggedIn = false;
+const path = window.location.pathname;
+
 
 function toggleNav() {
     offCanvasMenu.classList.toggle('open');
@@ -78,12 +79,14 @@ const email = document.getElementById("email")
 const phone = document.getElementById("phone")
 const confirmBtn = document.getElementById("confirm-appointment")
 
-if (window.location.pathname == "/appoinment.html") {
+if (path == "/appointment.html" || path == "/appointment") {
     const checkSessionForAppointment = async () => {
         const getSession = await session()
-        if (window.location.pathname == "/appointment.html" && !getSession.session) {
+        if (path == "/appointment" || path == "/appointment.html" && !getSession.session) {
+            window.location.href = "/login"
             window.location.href = "/login.html"
         } else {
+            patientName.value = getSession.session.user.user_metadata.name 
             email.value = getSession.session.user.user_metadata.email
         }
     }
@@ -114,6 +117,9 @@ if (window.location.pathname == "/appoinment.html") {
             return error
         }
         console.log(data);
+        doctor.innerHTML = ""
+        doctor.innerHTML = `
+        <option value="placeholder" disabled selected>Please Select Doctor</option>`
         data.map((data) => {
             doctor.innerHTML += `<option value="${data.doctor_name}" >${data.doctor_name}</option>`
         })
@@ -124,7 +130,9 @@ if (window.location.pathname == "/appoinment.html") {
         if (specialty.value != "placeholder") {
             doctor.disabled = false
             getDoctor()
+            return
         }
+        // doctor.disabled = true;
     })
     const getDay = async () => {
         const { data, error } = await supabaseclient
@@ -142,7 +150,9 @@ if (window.location.pathname == "/appoinment.html") {
         console.log(doctor.value);
         if (doctor.value != "placeholder") {
             date.disabled = false;
+            return
         }
+        date.disabled = true;
     })
     const getTime = async () => {
         const { data, error } = await supabaseclient
@@ -169,20 +179,26 @@ if (window.location.pathname == "/appoinment.html") {
         const doctorDays = await getDay()
         if (event.target.value > formattedDate) {
             doctorDays.map(async (data) => {
-                if (selectedDay == data) {
+                if (data == selectedDay) {
                     console.log("matched");
-                    time.disabled = false
                     const doctorTime = await getTime()
+                    time.disabled = false
+                    time.innerHTML = ""
+                    time.innerHTML = `<option value="placeholder" disabled selected>Please Select your Time Slot</option>`
                     doctorTime.map((data) => {
                         console.log(data);
                         time.innerHTML += `
-                    <option value="${data}" >${data}</option>
-                    `
+                        <option value="${data}" >${data}</option>
+                        `
                         confirmBtn.disabled = false
                     })
+                    return
                 }
+                time.disabled = true;
             })
+            return
         }
+        time.disabled = true;
     })
     confirmBtn.addEventListener("click", async () => {
         const { data, error } = await supabaseclient
@@ -208,12 +224,12 @@ if (window.location.pathname == "/appoinment.html") {
     }
     )
 }
-if (window.location.pathname == "/my_appoint.html") {
+if (path == "/my_appoint" || path == "/my_appoint.html") {
     const container = document.getElementById('appointments-container');
     const checkSessionForAppointment = async () => {
         const getSession = await session()
-        if (window.location.pathname == "/my_appoint.html" && !getSession.session) {
-            window.location.href = "/login.html"
+        if (window.location.pathname == "/my_appoint" && !getSession.session) {
+            window.location.href = "/login"
         } else if (getSession.session) {
             const apptEmail = getSession.session.user.user_metadata.email
             const apptName = getSession.session.user.user_metadata.name
@@ -222,7 +238,7 @@ if (window.location.pathname == "/my_appoint.html") {
             const appointList = await getAppt(apptEmail)
             if (appointList.length) {
                 container.innerHTML = ""
-                appointList.map(data => { 
+                appointList.map(data => {
                     container.innerHTML += `
                     <div class="appoints-div">
                     <div class="dateTime">
