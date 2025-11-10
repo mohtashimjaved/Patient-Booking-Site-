@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Appointments | MediCare Central</title>
+    <title>About Us - MediCare Central</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
@@ -39,12 +39,13 @@
             </div>
         </div>
         <ul class="main-menu-list">
-            <li id="appointment-li" class="user-section-link active" style="display: none;"><a href="#orders"><i class="fas fa-clipboard-list"></i>My Appointments</a>
+            <li id="appointment-li" class="user-section-link" style="display: none;"><a href="./my_appoint.html"><i
+                        class="fas fa-clipboard-list"></i>My Appointments</a>
             </li>
-            <li><a href="./index.html" class=""><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="./index.html"><i class="fas fa-home"></i>Home</a></li>
             <li><a href="./index.html#specialties"><i class="fa-solid fa-stethoscope"></i>Doctors & Specs</a></li>
             <li><a href="./index.html#services"><i class="fa-solid fa-gear"></i>Services</a></li>
-            <li><a href="./about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+            <li><a href="./about.html" class="active"><i class="fas fa-info-circle"></i>About Us</a></li>
             <li><a href="./contact.html"><i class="fas fa-headset"></i> Contact</a></li>
         </ul>
 
@@ -56,22 +57,67 @@
         </div>
     </nav>
     <div id="overlay" class="overlay"></div>
-    <main class="main-content">
-        <section class="appointments-list-card">
-            <h1 class="card-title"><i class="fas fa-list-alt"></i> My Scheduled Appointments</h1>
+    
+    <main class="about-main-content">
+        <div class="container">
+            <h2 class="section-title">🏥 About MediCare Central</h2>
+            <p class="section-intro-about">Since 2015, we have been dedicated to providing comprehensive and compassionate healthcare services, focusing on clinical excellence and patient-centered care.</p>
 
-            <p class="section-intro"></p>
+            <section class="about-vision-mission">
+                <div class="vision-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                    <p>To deliver exceptional healthcare outcomes with an unwavering commitment to quality, patient safety, and personalized treatment plans for every individual.</p>
+                </div>
+                <div class="vision-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Our Vision</h3>
+                    <p>To be the leading hospital in the region, recognized for its innovative medical technologies, expert staff, and a truly caring environment that promotes holistic wellness.</p>
+                </div>
+            </section>
+            <div class="divider"></div>
 
-            <div id="appointments-container">
-                <h1>
-                    Your Appointment List Is Empty
-                </h1>
-            </div>
+            <section class="about-feature-block">
+                <div class="feature-content">
+                    <h3>Patient-Centric Approach</h3>
+                    <p>At MediCare Central, you are at the heart of everything we do. Our approach integrates all aspects of your health—physical, emotional, and psychological—to provide care that is tailored specifically to you.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i>Personalized Care from specialists.</li>
+                        <li><i class="fas fa-check-circle"></i>24/7 Support and dedicated nursing staff.</li>
+                        <li><i class="fas fa-check-circle"></i>Seamless Coordination across all departments.</li>
+                    </ul>
+                </div>
+                <div class="feature-image-wrapper">
+                    <iframe class="feature-image" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.238407481691!2d-122.41941568468165!3d37.77492977975936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064a3d4d7e7%3A0x1a7f0e6c7c0b2f5!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1678888888888!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
 
-        </section>
+            <div class="divider"></div>
+
+            <section class="about-values">
+                <h3 class="values-title">Core Values that Guide Us</h3>
+                <div class="value-grid">
+                    <div class="value-item">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h4>Compassion</h4>
+                        <p>We treat every patient with empathy, respect, and dignity, recognizing the vulnerability in illness.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-star-of-life"></i>
+                        <h4>Excellence</h4>
+                        <p>We strive for the highest clinical outcomes through continuous training and the adoption of cutting-edge practices.</p>
+                    </div>
+                    <div class="value-item">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Integrity</h4>
+                        <p>We operate with transparency, honesty, and uphold the strongest ethical standards in all our actions.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
-    <footer id="">
+    <footer>
         <div class="container footer-grid">
             <div class="footer-col">
                 <div class="footer-logo">MediCare Central</div>
@@ -82,14 +128,14 @@
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
-                     <li><a href="./about.html">About Us</a></li>
+                    <li><a href="./about.html">About Us</a></li>
                     <li><a href="./contact.html">Contact</a></li>
                     <li><a href="./index.html#services">Services</a></li>
                     <li><a href="./index.html#specialties">Meet the Doctors</a></li>
                 </ul>
             </div>
 
-
+            
             <div class="footer-col footer-contact">
                 <h4>Contact & Location</h4>
                 <p><i class="fas fa-map-marker-alt"></i> 123 Health Ave, Wellness City, 90210</p>
@@ -111,8 +157,8 @@
             &copy; 2025 MediCare Central Hospital. All Rights Reserved.
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://kit.fontawesome.com/a7577e03bc.js" crossorigin="anonymous"></script>
     <script src="database.js" type="module"></script>
     <script src="script.js" type="module"></script>

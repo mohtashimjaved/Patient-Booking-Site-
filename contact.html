@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Appointments | MediCare Central</title>
+    <title>Contact Us - MediCare Central</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
@@ -39,13 +39,15 @@
             </div>
         </div>
         <ul class="main-menu-list">
-            <li id="appointment-li" class="user-section-link active" style="display: none;"><a href="#orders"><i class="fas fa-clipboard-list"></i>My Appointments</a>
+            <li id="appointment-li" class="user-section-link" style="display: none;"><a href="./my_appoint.html"><i
+                        class="fas fa-clipboard-list"></i>My Appointments</a>
             </li>
-            <li><a href="./index.html" class=""><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="./index.html"><i class="fas fa-home"></i>Home</a></li>
             <li><a href="./index.html#specialties"><i class="fa-solid fa-stethoscope"></i>Doctors & Specs</a></li>
             <li><a href="./index.html#services"><i class="fa-solid fa-gear"></i>Services</a></li>
             <li><a href="./about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
-            <li><a href="./contact.html"><i class="fas fa-headset"></i> Contact</a></li>
+            <li><a href="./contact.html" class="active"><i class="fas fa-headset"></i> Contact</a></li>
+            
         </ul>
 
         <div id="auth-footer" class="auth-footer">
@@ -56,22 +58,71 @@
         </div>
     </nav>
     <div id="overlay" class="overlay"></div>
-    <main class="main-content">
-        <section class="appointments-list-card">
-            <h1 class="card-title"><i class="fas fa-list-alt"></i> My Scheduled Appointments</h1>
 
-            <p class="section-intro"></p>
+    <main class="contact-main-content">
+        <div class="container contact-grid-container">
+            <div class="contact-form-col">
+                <h2 class="section-title contact-title">Get In Touch With Us</h2>
+                <p class="section-intro-contact">Have a question? Fill out the form below, and our dedicated team will get back to you within 24 hours.</p>
 
-            <div id="appointments-container">
-                <h1>
-                    Your Appointment List Is Empty
-                </h1>
+                <form class="contact-form" id="contactForm">
+                    <div class="input-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="e.g., patient@example.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="" disabled selected>Select a subject...</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Billing Question">Billing Question</option>
+                            <option value="Appointment Change">Appointment Change</option>
+                            <option value="Feedback">Feedback</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Type your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn contact-submit-btn">Send Message</button>
+                    <p class="note">For medical emergencies, please call <b>(555) 911</b> immediately.</p>
+                </form>
+                <div id="formMessage" class="form-message" style="margin-top: 20px;"></div>
             </div>
 
-        </section>
+            <div class="contact-info-col">
+                <h3 class="info-title">Reach Us Directly</h3>
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Emergency Line (24/7)</h4>
+                    <a href="tel:5551234567">(555) 123-4567</a>
+                    <p>Call for immediate assistance.</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Our Location</h4>
+                    <address>123 Health Ave, Wellness City, 90210</address>
+                    <a href="#" class="btn-secondary-link">Get Directions</a>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>Hospital Hours</h4>
+                    <p><strong>Emergency:</strong> Open 24 Hours</p>
+                    <p><strong>Admin:</strong> Mon - Fri: 8:00 AM - 5:00 PM</p>
+                </div>
+                
+                <div class="contact-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.238407481691!2d-122.41941568468165!3d37.77492977975936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064a3d4d7e7%3A0x1a7f0e6c7c0b2f5!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1678888888888!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            </div>
+        </div>
     </main>
 
-    <footer id="">
+    <footer>
         <div class="container footer-grid">
             <div class="footer-col">
                 <div class="footer-logo">MediCare Central</div>
@@ -89,7 +140,7 @@
                 </ul>
             </div>
 
-
+            
             <div class="footer-col footer-contact">
                 <h4>Contact & Location</h4>
                 <p><i class="fas fa-map-marker-alt"></i> 123 Health Ave, Wellness City, 90210</p>
@@ -111,8 +162,8 @@
             &copy; 2025 MediCare Central Hospital. All Rights Reserved.
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://kit.fontawesome.com/a7577e03bc.js" crossorigin="anonymous"></script>
     <script src="database.js" type="module"></script>
     <script src="script.js" type="module"></script>

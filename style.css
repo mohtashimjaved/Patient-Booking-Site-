@@ -129,7 +129,6 @@ a:hover {
     font-weight: 700;
 }
 
-/* --- Navbar (Header) Styling --- */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -139,7 +138,7 @@ a:hover {
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.516);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 2000;
 }
 
 .header-left,
@@ -856,15 +855,15 @@ footer {
     max-width: 1100px;
 }
 
-.card-title {
+.card-title-appoint {
     color: var(--primary-color);
     text-align: center;
     margin-bottom: 10px;
-    font-size: 2.5em;
+    font-size: 2.8em;
     padding-bottom: 5px;
 }
 
-.section-intro {
+.section-intro-appoint {
     text-align: center;
     margin-bottom: 30px;
     color: #666;
@@ -984,10 +983,6 @@ select:focus {
     font-size: 0.9em;
 }
 
-/* My Appointments */
-/* ================================
-   Modern Elegant Main Content Styling
-   ================================ */
 
 .main-content {
   max-width: 1100px;
@@ -998,7 +993,7 @@ select:focus {
   background: #f9fafc;
 }
 
-/* ---------- Appointments List Card ---------- */
+
 .appointments-list-card {
   background: linear-gradient(145deg, #ffffff, #f1f5f9);
   border-radius: 16px;
@@ -1020,37 +1015,35 @@ select:focus {
   gap: 10px;
   font-size: 24px;
   font-weight: 700;
-  color: #2563eb;
+  color: var(--primary-color);
   margin: 0 0 6px;
 }
 
 .card-title i {
-  color: #3b82f6;
+  color: var(--secondary-color);
 }
 
 .section-intro {
   font-size: 15px;
-  color: #64748b;
+  color: #648b88;
   margin-bottom: 20px;
 }
 
-/* ---------- Appointments Container ---------- */
 #appointments-container {
   margin-top: 24px;
 }
 
 #appointments-container h1 {
   text-align: center;
-  color: #94a3b8;
+  color: #94b8b2;
   font-size: 16px;
   font-weight: 500;
   margin: 30px 0;
 }
 
-/* ---------- Appointment Item ---------- */
 .appoints-div {
-  background: linear-gradient(180deg, #ffffff, #f8fafc);
-  border: 1px solid #e2e8f0;
+  background: linear-gradient(180deg, #ffffff, #f8fcfb);
+  border: 1px solid #e2f0ee;
   border-radius: 14px;
   padding: 18px 20px;
   display: flex;
@@ -1063,12 +1056,12 @@ select:focus {
 
 .appoints-div:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.12);
+  box-shadow: 0 10px 25px rgba(59, 246, 218, 0.12);
 }
 
 /* ---------- Date & Time Box ---------- */
 .dateTime {
-  width: 100px;
+  width: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1076,8 +1069,8 @@ select:focus {
   gap: 8px;
   padding: 10px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #dbeafe, #eff6ff);
-  color: #1e40af;
+  background: linear-gradient(135deg, #d9edea, #effffd);
+  color: var(--primary-color);
   font-weight: 600;
   flex-shrink: 0;
   text-align: center;
@@ -1088,7 +1081,7 @@ select:focus {
 }
 
 .dateTime .time {
-  background: #3b82f6;
+  background: var(--primary-color);
   color: white;
   padding: 5px 10px;
   border-radius: 8px;
@@ -1118,30 +1111,30 @@ select:focus {
 .about-patient .phone {
   padding: 8px 14px;
   border-radius: 10px;
-  background: #f1f5f9;
-  color: #334155;
+  background: #f1f9f8;
+  color: #335455;
   font-size: 14px;
   transition: background 0.3s;
 }
 
 .about-doctor > div:hover,
 .about-patient > div:hover {
-  background: #e0e7ff;
+  background: #e0fffd;
 }
 
 hr {
   border: 0;
   height: 1px;
-  background: #e2e8f0;
+  background: #e2f0ee;
   margin: 8px 0;
 }
 
 /* ---------- Delete Button ---------- */
 .deleteBtn {
   align-self: center;
-  background: #eff6ff;
-  border: 1px solid #c7d2fe;
-  color: #2563eb;
+  background: #fff;
+  border: 1px solid #fec7c7;
+  color: #ff5555;
   padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
@@ -1153,15 +1146,15 @@ hr {
 }
 
 .deleteBtn:hover {
-  background: #2563eb;
+  background: #ff5555;
   color: #fff;
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 6px 18px rgba(235, 37, 37, 0.3);
 }
 
 /* ---------- Empty State ---------- */
 #appointments-container .empty-state {
   text-align: center;
-  color: #94a3b8;
+  color: #94b8b5;
   font-size: 15px;
   padding: 28px;
 }
@@ -1203,3 +1196,313 @@ hr {
   }
 }
 
+/* --- Global Page Content Layouts (For about/contact) --- */
+.about-main-content, .contact-main-content {
+    padding: 60px 0 100px;
+    background-color: var(--white);
+}
+
+.section-intro-about, .section-intro-contact {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* --- About Us Page Styles --- */
+.about-vision-mission {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.vision-card {
+    flex: 1;
+    background-color: var(--light-bg);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--primary-color);
+}
+
+.vision-card i {
+    font-size: 3em;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.vision-card h3 {
+    color: var(--dark-color);
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.divider {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 40px auto;
+    width: 80%;
+}
+
+.about-feature-block {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-content h3 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.feature-content p {
+    margin-bottom: 20px;
+}
+
+.feature-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.feature-content ul li {
+    margin-bottom: 10px;
+    font-size: 1.05em;
+    color: var(--dark-color);
+}
+
+.feature-content ul li i {
+    color: var(--secondary-color);
+    margin-right: 10px;
+}
+
+.feature-image-wrapper {
+    flex: 1;
+    max-width: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature-image {
+    width: 100%;
+    height: 350px;
+    background-color: #ccc; /* Placeholder for image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: var(--dark-color);
+    font-size: 0.9em;
+}
+
+.about-values {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.values-title {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: var(--secondary-color);
+}
+
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.value-item {
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #f0fffb;
+    transition: var(--transition);
+}
+
+.value-item:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+}
+
+.value-item i {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.value-item h4 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+/* --- Contact Us Page Styles --- */
+.contact-grid-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    padding-top: 0 !important;
+}
+
+.contact-title {
+    padding-top: 0;
+}
+
+.contact-form {
+    background-color: var(--light-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--primary-color);
+}
+
+.contact-form label {
+    font-size: 1em;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    height: 55px;
+    padding: 12px;
+    font-size: 1.05em;
+    border: 1px solid #ccc;
+}
+
+.contact-form textarea {
+    font-size: 1.5em;
+    text-transform: capitalize;
+    height: 150px;
+    width: 100%;
+    resize: none;
+}
+
+.contact-submit-btn {
+    padding: 15px 25px;
+    font-size: 1em;
+}
+
+.contact-info-col {
+    padding-top: 20px;
+}
+
+.info-title {
+    font-size: 1.8em;
+    color: var(--dark-color);
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--secondary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.info-card {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.info-card i {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.info-card h4 {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.info-card a, .info-card p {
+    display: block;
+    margin-top: 5px;
+    color: #555;
+}
+
+.btn-secondary-link {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.btn-secondary-link:hover {
+    text-decoration: underline;
+}
+
+.contact-map {
+    width: 100%;
+    height: 250px;
+    background-color: #eef; /* Placeholder for map */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    font-style: italic;
+    color: #888;
+}
+.form-message {
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    display: none;
+}
+
+.form-message.success {
+    background-color: #e6fff0;
+    color: #008040;
+    border: 1px solid #00a896;
+}
+
+.form-message.error {
+    background-color: #fff0f0;
+    color: #cc0000; 
+    border: 1px solid #ff5555;
+}
+
+
+@media (max-width: 1024px) {
+    .about-feature-block {
+        flex-direction: column;
+        text-align: center;
+    }
+    .feature-content {
+        order: 2;
+    }
+    .feature-image-wrapper {
+        order: 1;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+    .contact-grid-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-vision-mission {
+        flex-direction: column;
+    }
+    .value-grid {
+        grid-template-columns: 1fr;
+    }
+    .info-title {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}

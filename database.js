@@ -27,5 +27,6 @@ export const deletedata = async (id) => {
     if (error) {
         console.log(error);
     }
+    window.location.reload()
     return data;
 }

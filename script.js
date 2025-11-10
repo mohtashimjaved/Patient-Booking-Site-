@@ -86,7 +86,8 @@ if (path == "/appointment.html" || path == "/appointment") {
             window.location.href = "/login"
             window.location.href = "/login.html"
         } else {
-            patientName.value = getSession.session.user.user_metadata.name 
+            patientName.value = getSession.session.user.user_metadata.name
+            patientName.style.textTransform = "Capitalize"
             email.value = getSession.session.user.user_metadata.email
         }
     }
@@ -190,6 +191,7 @@ if (path == "/appointment.html" || path == "/appointment") {
                         time.innerHTML += `
                         <option value="${data}" >${data}</option>
                         `
+
                         confirmBtn.disabled = false
                     })
                     return
@@ -223,6 +225,18 @@ if (path == "/appointment.html" || path == "/appointment") {
         return data
     }
     )
+}
+const getAppt = async (email) => {
+    const { data, error } = await supabaseclient
+        .from("appointments")
+        .select("")
+        .eq("email", email)
+    if (error) {
+        console.error(error);
+        return error
+    }
+    console.log(data);
+    return data
 }
 if (path == "/my_appoint" || path == "/my_appoint.html") {
     const container = document.getElementById('appointments-container');
@@ -277,7 +291,7 @@ if (path == "/my_appoint" || path == "/my_appoint.html") {
                             </div>
                         </div>
                     </div>
-                    <button class="deleteBtn" id="${data.id}" ><i class="fa-solid fa-trash"></i>Cancel</button>
+                    <button class="deleteBtn" id="${data.id}" ><i class="fa-solid fa-trash"></i></button>
                 </div>
                     `
                     document.getElementById(data.id).addEventListener("click", () => {
@@ -289,20 +303,67 @@ if (path == "/my_appoint" || path == "/my_appoint.html") {
 
     }
     checkSessionForAppointment()
-    const getAppt = async (email) => {
-        const { data, error } = await supabaseclient
-            .from("appointments")
-            .select("")
-            .eq("email", email)
-        if (error) {
-            console.error(error);
-            return error
-        }
-        console.log(data);
-        return data
-    }
 };
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
 
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        if (!name || !email || !subject || !message) {
+             displayMessage('Please fill out all required fields.', 'error');
+             return;
+        }
+
+        const submitBtn = contactForm.querySelector('.contact-submit-btn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        displayMessage('','');
+
+        const { error } = await supabaseclient
+            .from('contact_messages')
+            .insert([
+                { 
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: message 
+                },
+            ]);
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+
+
+        if (error) {
+            console.error('Error submitting contact form:', error.message);
+            displayMessage('Error sending message. Please try again later.', 'error');
+        } else {
+            displayMessage('Your message has been sent successfully! We will respond shortly.', 'success');
+            contactForm.reset();
+        }
+    });
+}
+
+function displayMessage(text, type) {
+    formMessage.textContent = text;
+    formMessage.className = 'form-message';
+    if (type === 'success') {
+        formMessage.classList.add('success');
+        formMessage.style.display = 'block';
+    } else if (type === 'error') {
+        formMessage.classList.add('error');
+        formMessage.style.display = 'block';
+    } else {
+        formMessage.style.display = 'none';
+    }
+}
 
 
 
